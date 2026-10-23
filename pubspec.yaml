@@ -1,0 +1,27 @@
+name: jijian_ledger
+description: 制衣厂工人计件记账本（纯离线，无需联网）
+publish_to: 'none'
+version: 1.4.0+5
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # 本地数据库：SQLite。选型说明见 README「为什么不用 Drift」
+  sqflite: ^2.4.1
+  path: ^1.9.0
+  image_picker: ^1.2.4
+  path_provider: ^2.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # 只给测试用：让单元测试能在电脑上开一个内存 SQLite，
+  # 这样"记两笔→月合计对不对"能被自动验证，不靠手点。
+  # 它不会被打进 APK（dev_dependencies 不参与 release 构建）。
+  sqflite_common_ffi: ^2.3.4
+
+flutter:
+  uses-material-design: true
